@@ -1,0 +1,16 @@
+{
+    "name": "alkaupp/readonly",
+    "description": "A trait to provide readonly public properties",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "^8.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aleksi Kauppila",
+            "email": "aleksi.kauppila@gmail.com"
+        }
+    ],
+    "require": {}
+}
