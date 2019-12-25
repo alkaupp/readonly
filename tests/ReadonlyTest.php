@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace Tests\Alkaupp\Readonly;
 
-use Alkaupp\Readonly\ReassignmentError;
 use DateTime;
+use Error;
 use PHPUnit\Framework\TestCase;
 
 class ReadonlyTest extends TestCase
@@ -26,7 +26,14 @@ class ReadonlyTest extends TestCase
 
     public function testThrowsExceptionOnAssignment(): void
     {
-        $this->expectException(ReassignmentError::class);
+        $this->expectException(Error::class);
         $this->example->firstName = 'Hugo';
+    }
+
+    public function testWarningWithReadingUnknownProperty(): void
+    {
+        $this->expectNotice();
+        $this->expectNoticeMessage('Undefined property: Tests\Alkaupp\Readonly\Example::$unknown');
+        $this->example->unknown;
     }
 }
